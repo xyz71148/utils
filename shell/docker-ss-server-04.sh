@@ -47,7 +47,7 @@ sudo docker run hello-world
 
 # Install the shadowsocks docker image
 sudo docker pull oddrationale/docker-shadowsocks
-
+docker rm -f shadowsocks
 sudo docker run -d \
     --name shadowsocks \
     --restart=always \
