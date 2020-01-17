@@ -1,5 +1,5 @@
 #!/bin/bash
-USSAGE="https://raw.githubusercontent.com/xyz71148/utils/master/shell/docker-ss-server-xx.sh | bash -s SSPORT SSPASSWORD"
+USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/docker-ss-server-xx.sh | bash -s SSPORT SSPASSWORD"
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
