@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bsh
+#ubuntu 18.04
 USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/docker-ss-server-xx.sh | bash -s SSPORT SSPASSWORD"
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
@@ -58,3 +59,4 @@ sudo docker run -d \
     -p $SSPORT \
     -k $SSPASSWORD
     
+docker ps | grep shadowsocks
