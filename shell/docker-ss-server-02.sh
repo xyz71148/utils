@@ -1,11 +1,11 @@
 #!/bin/bash
+USSAGE="https://raw.githubusercontent.com/xyz71148/utils/master/shell/docker-ss-server-xx.sh | bash -s SSPORT SSPASSWORD"
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-
 SSPORT=$1
 if [ "${SSPORT}" = "" ]; then
-    echo "Error: usage: sh docker-ss-server-xx.sh SSPORT SSPASSWORD"
+    echo "Error: usage: $USSAGE"
     exit 1
 else
     SSPORT=$1
@@ -13,7 +13,7 @@ fi
 
 SSPASSWORD=$2
 if [ "${SSPASSWORD}" = "" ]; then
-    echo "Error: usage: sh docker-ss-server-xx.sh SSPORT SSPASSWORD"
+    echo "Error: usage: $USSAGE"
     exit 1
 else
     SSPASSWORD=$2
