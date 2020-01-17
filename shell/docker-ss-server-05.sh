@@ -39,7 +39,6 @@ sudo apt update
 sudo apt install -y docker-engine
 
 # Make sure docker service is running
-sudo service docker status
 sudo service docker start
 
 # Test docker installation
