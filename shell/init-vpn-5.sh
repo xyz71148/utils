@@ -3,6 +3,11 @@
 
 # USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/init-vpn-1.sh | bash -s SSPORT SSPASSWORD ALARM_TOKEN PROXY_PROJECT_ID"
 
+SS_PORT=$1
+SS_PWD=$1
+ALARM_TOKEN=$1
+PROXY_PROJECT_ID=$1
+
 echo $SS_PORT
 echo $SS_PWD
 
