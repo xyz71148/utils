@@ -13,3 +13,11 @@ sudo docker rm -f shadowsocks
 sudo docker run -d -e SERVER_START=1 -e SS_PORT=$SS_PORT -e SS_HOST=0.0.0.0 -e SS_M=aes-256-cfb -e SS_PWD=$SS_PWD -e BOOTS=ss -p $SS_PORT:$SS_PORT --cap-add=NET_ADMIN --name shadowsocks sanfun/public:shadowsocks-v1
 
 nohup proxy_go https://$PROXY_PROJECT_ID.appspot.com 0.0.0.0:8081 >> /tmp/proxy.log &
+
+curl 'https://oapi.dingtalk.com/robot/send?access_token=$ALARM_TOKEN' \
+   -H 'Content-Type: application/json' \
+   -d '{"msgtype": "text", 
+        "text": {
+             "content": "[DEV] $HOST:$SS_PORT UP, SS_PWD: $SS_PWD"
+        }
+      }'
