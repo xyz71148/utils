@@ -14,7 +14,7 @@ sudo docker run -d -e SERVER_START=1 -e SS_PORT=$SS_PORT -e SS_HOST=0.0.0.0 -e S
 
 nohup proxy_go https://$PROXY_PROJECT_ID.appspot.com 0.0.0.0:8081 >> /tmp/proxy.log &
 
-curl 'https://oapi.dingtalk.com/robot/send?access_token=$ALARM_TOKEN' \
+curl https://oapi.dingtalk.com/robot/send?access_token=$ALARM_TOKEN \
    -H 'Content-Type: application/json' \
    -d '{"msgtype": "text", 
         "text": {
