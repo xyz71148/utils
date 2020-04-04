@@ -29,7 +29,7 @@ curl https://oapi.dingtalk.com/robot/send?access_token=$ALARM_TOKEN \
    -H 'Content-Type: application/json' \
    -d "{\"msgtype\": \"text\", 
   \"text\": {
-     \"content\": \"[DEV] $HOST:$SS_PORT UP, SS_PWD: $SS_PWD\"
+     \"content\": \"[DEV] $HOST:$SS_PORT UP, SS_PWD: $SS_PWD, http://ping.chinaz.com/$HOST\"
   }
 }"
 
