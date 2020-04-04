@@ -1,9 +1,13 @@
 #!/bin/bsh
 # 2020-04-04
 
-# USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/init-vpn-8.sh | bash"
+# USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/init-vpn-9.sh | bash $SS_PORT $SS_PWD $ALARM_TOKEN $PROXY_PROJECT_ID"
 
 HOST=$(dig +short myip.opendns.com @resolver1.opendns.com)
+SS_PORT=$1
+SS_PWD=$2
+ALARM_TOKEN=$3
+PROXY_PROJECT_ID=$4
 
 echo $HOST
 echo $SS_PORT
