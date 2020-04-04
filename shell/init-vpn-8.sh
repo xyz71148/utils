@@ -1,7 +1,7 @@
 #!/bin/bsh
 # 2020-04-04
 
-# USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/init-vpn-1.sh | bash"
+# USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/init-vpn-8.sh | bash"
 
 HOST=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
