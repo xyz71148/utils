@@ -1,7 +1,7 @@
 #!/bin/bsh
 # 2020-04-04
 
-# USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/init-vpn-9.sh | bash $SS_PORT $SS_PWD $ALARM_TOKEN $PROXY_PROJECT_ID"
+# USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/init-vpn-11.sh | bash $SS_PORT $SS_PWD $ALARM_TOKEN $PROXY_PROJECT_ID"
 
 HOST=$(dig +short myip.opendns.com @resolver1.opendns.com)
 SS_PORT=$1
@@ -25,8 +25,9 @@ nohup proxy_go https://$PROXY_PROJECT_ID.appspot.com 0.0.0.0:8081 >> /tmp/proxy.
 
 curl https://oapi.dingtalk.com/robot/send?access_token=$ALARM_TOKEN \
    -H 'Content-Type: application/json' \
-   -d '{"msgtype": "text", 
-  "text": {
-     "content": "[DEV] $HOST:$SS_PORT UP, SS_PWD: $SS_PWD"
+   -d "{\"msgtype\": \"text\", 
+  \"text\": {
+     \"content\": \"[DEV] $HOST:$SS_PORT UP, SS_PWD: $SS_PWD\"
   }
-}'
+}"
+
