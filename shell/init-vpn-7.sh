@@ -4,9 +4,9 @@
 # USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/init-vpn-1.sh | bash -s $SS_PORT $SS_PWD $ALARM_TOKEN $PROXY_PROJECT_ID"
 
 SS_PORT=$1
-SS_PWD=$1
-ALARM_TOKEN=$1
-PROXY_PROJECT_ID=$1
+SS_PWD=$2
+ALARM_TOKEN=$3
+PROXY_PROJECT_ID=$4
 
 HOST=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
