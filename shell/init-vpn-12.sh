@@ -23,6 +23,13 @@ sudo docker run -d -e SERVER_START=1 -e SS_PORT=$SS_PORT -e SS_HOST=0.0.0.0 -e S
 sleep 1
 sudo docker ps
 
+mkdir -p webroow
+cat  > webroot/index.php << EOF 
+<?php header('Content-Type: application/json'); 
+echo json_encode([\$_SERVER['REQUEST_TIME_FLOAT'],\$_SERVER['REMOTE_ADDR']]);
+EOF
+nohup sudo php -S 0.0.0.0:80 -t webroot >> /tmp/web.log &
+
 nohup proxy_go https://$PROXY_PROJECT_ID.appspot.com 0.0.0.0:8081 >> /tmp/proxy.log &
 
 curl https://oapi.dingtalk.com/robot/send?access_token=$ALARM_TOKEN \
