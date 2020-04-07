@@ -25,7 +25,11 @@ sudo docker ps
 
 mkdir -p webroot
 cat  > webroot/index.php << EOF 
-<?php header('Content-Type: application/json'); 
+<?php 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
+header('Access-Control-Allow-Headers:x-requested-with,content-type');
+header('Content-Type: application/json'); 
 echo json_encode([\$_SERVER['REQUEST_TIME_FLOAT'],\$_SERVER['REMOTE_ADDR']]);
 EOF
 nohup sudo php -S 0.0.0.0:80 -t webroot >> /tmp/web.log &
