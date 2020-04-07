@@ -28,7 +28,7 @@ cat  > webroot/index.php << EOF
 <?php 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
-header('Access-Control-Allow-Headers:x-requested-with,content-type');
+header('Access-Control-Allow-Headers:x-requested-with,authorization,content-type');
 header('Content-Type: application/json'); 
 echo json_encode([\$_SERVER['REQUEST_TIME_FLOAT'],\$_SERVER['REMOTE_ADDR']]);
 EOF
