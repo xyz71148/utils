@@ -23,7 +23,7 @@ sudo docker run -d -e SERVER_START=1 -e SS_PORT=$SS_PORT -e SS_HOST=0.0.0.0 -e S
 sleep 1
 sudo docker ps
 
-mkdir -p webroow
+mkdir -p webroot
 cat  > webroot/index.php << EOF 
 <?php header('Content-Type: application/json'); 
 echo json_encode([\$_SERVER['REQUEST_TIME_FLOAT'],\$_SERVER['REMOTE_ADDR']]);
