@@ -23,18 +23,11 @@ sudo docker run -d -e SERVER_START=1 -e SS_PORT=$SS_PORT -e SS_HOST=0.0.0.0 -e S
 sleep 1
 sudo docker ps
 
-mkdir -p webroot
-cat  > webroot/index.php << EOF 
-<?php 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
-header('Access-Control-Allow-Headers:x-requested-with,authorization,content-type');
-header('Content-Type: application/json'); 
-echo json_encode([\$_SERVER['REQUEST_TIME_FLOAT'],\$_SERVER['REMOTE_ADDR']]);
-EOF
-nohup sudo php -S 0.0.0.0:80 -t webroot >> /tmp/web.log &
+sudo rm -rf /bin/proxy_go
+sudo curl https://keen-frame-269312.appspot.com/ -o /bin/proxy_go
+sudo chmod +x /bin/proxy_go
 
-nohup proxy_go https://$PROXY_PROJECT_ID.appspot.com 0.0.0.0:8081 >> /tmp/proxy.log &
+nohup proxy_go 0.0.0.0:8001 0.0.0.0:8000 https://$PROXY_PROJECT_ID.appspot.com  >> /tmp/proxy.log &
 
 curl https://oapi.dingtalk.com/robot/send?access_token=$ALARM_TOKEN \
    -H 'Content-Type: application/json' \
