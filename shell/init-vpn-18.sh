@@ -6,14 +6,12 @@
 HOST=$(dig +short myip.opendns.com @resolver1.opendns.com)
 SS_PORT=$1
 SS_PWD=$2
-ALARM_TOKEN=$3
-PROXY_PROJECT_ID=$4
+PROXY_PROJECT_ID=$3
 REPORT_URL=$5
 
 echo $HOST
 echo $SS_PORT
 echo $SS_PWD
-echo $ALARM_TOKEN
 echo $PROXY_PROJECT_ID
 echo $REPORT_URL
 
@@ -28,14 +26,6 @@ sudo curl https://$PROXY_PROJECT_ID.appspot.com/static/proxy_go -o /bin/proxy_go
 sudo chmod +x /bin/proxy_go
 
 nohup proxy_go 0.0.0.0:8001 0.0.0.0:8000 https://$PROXY_PROJECT_ID.appspot.com  >> /tmp/proxy.log &
-
-curl https://oapi.dingtalk.com/robot/send?access_token=$ALARM_TOKEN \
-   -H 'Content-Type: application/json' \
-   -d "{\"msgtype\": \"text\", 
-  \"text\": {
-     \"content\": \"[DEV] $HOST:$SS_PORT UP, SS_PWD: $SS_PWD, http://ping.chinaz.com/$HOST\"
-  }
-}"
 
 curl -X PUT -F ip=$HOST $REPORT_URL
 
