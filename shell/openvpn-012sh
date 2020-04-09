@@ -2,7 +2,7 @@
 # BY: Joseph
 
 
-# USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/openvpn-02.sh | bash -s $OPEN_VPN_PORT $OPEN_VPN_PWD $REPORT_URL $UPLOAD"
+# USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/openvpn-03.sh | bash -s $OPEN_VPN_PORT $OPEN_VPN_PWD $REPORT_URL $UPLOAD"
 
 
 OPEN_VPN_PORT=$1
@@ -70,7 +70,7 @@ expect eof
 EOF
 
 cat $TMP
-expect -f $TMP || (echo "ovpn_initpki failed"; exit 1);
+expect -f $TMP || (echo "build-client-full failed"; exit 1);
 rm $TMP
 echo "========================"
 
