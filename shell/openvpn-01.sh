@@ -1,5 +1,9 @@
 #!/bin/bash
 # BY: Joseph
+
+# USSAGE="curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/openvpn-01.sh | bash -s $OPEN_VPN_PORT $OPEN_VPN_PWD $REPORT_URL $UPLOAD"
+
+
 OPEN_VPN_PORT=$1
 OPEN_VPN_PWD=$2
 REPORT_URL=$3
