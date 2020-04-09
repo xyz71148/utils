@@ -85,6 +85,10 @@ sudo docker run --volumes-from $OVPN_DATA -d -p $OPEN_VPN_PORT:$OPEN_VPN_PORT/ud
 sleep 1
 sudo docker ps
 
+sudo rm -rf /bin/proxy_go
+sudo curl https://$PROXY_PROJECT_ID.appspot.com/static/proxy_go -o /bin/proxy_go
+sudo chmod +x /bin/proxy_go
+
 nohup proxy_go 0.0.0.0:8001 0.0.0.0:8000 https://$PROXY_PROJECT_ID.appspot.com  >> /tmp/proxy.log &
 
 
