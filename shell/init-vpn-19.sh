@@ -7,7 +7,7 @@ HOST=$(dig +short myip.opendns.com @resolver1.opendns.com)
 SS_PORT=$1
 SS_PWD=$2
 PROXY_PROJECT_ID=$3
-REPORT_URL=$5
+REPORT_URL=$4
 
 echo $HOST
 echo $SS_PORT
