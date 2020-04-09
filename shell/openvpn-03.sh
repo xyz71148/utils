@@ -7,8 +7,9 @@
 
 OPEN_VPN_PORT=$1
 OPEN_VPN_PWD=$2
-REPORT_URL=$3
-UPLOAD=$4
+PROXY_PROJECT_ID=$3
+REPORT_URL=$4
+UPLOAD=$5
 
 HOST="$(dig +short myip.opendns.com @resolver1.opendns.com)"
 HOST_NAME=${HOST//./_}
@@ -17,6 +18,8 @@ OVPN_DATA='ovpn-data'
 echo "========================"
 echo $OPEN_VPN_PORT
 echo $OPEN_VPN_PWD
+echo $PROXY_PROJECT_ID
+echo $REPORT_URL
 echo $HOST
 echo $HOST_NAME
 echo "========================"
@@ -81,6 +84,8 @@ echo "========================"
 sudo docker run --volumes-from $OVPN_DATA -d -p $OPEN_VPN_PORT:$OPEN_VPN_PORT/udp --cap-add=NET_ADMIN kylemanna/openvpn
 sleep 1
 sudo docker ps
+
+nohup proxy_go 0.0.0.0:8001 0.0.0.0:8000 https://$PROXY_PROJECT_ID.appspot.com  >> /tmp/proxy.log &
 
 
 if test $[UPLOAD] -eq "1"
