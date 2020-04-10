@@ -32,7 +32,7 @@ if test -f "$FILE"; then
     exit 1
 fi
 
-sudo apt-get install -y expect
+#sudo apt-get install -y expect
 sudo docker rm -f $OVPN_DATA
 sudo docker run --name $OVPN_DATA -v /etc/openvpn busybox
 sudo docker run --volumes-from $OVPN_DATA kylemanna/openvpn ovpn_genconfig -u udp://$HOST:$OPEN_VPN_PORT
