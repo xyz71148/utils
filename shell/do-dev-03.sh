@@ -1,14 +1,18 @@
 #!/bin/bash
 project_id=$1
-mkdir -p ~/data/home
 
-FILE=~/data/home/.git
-if test -d "$FILE"; then
-    cd ~/data/home
-    git pull origin master
+if test -d "${PWD}/.git"; then
+    echo "in project"
 else
-    git clone git@e.coding.net:sanfun/vpn.git ~/data/home
-    cd ~/data/home
+  mkdir -p ~/data/home
+  FILE=~/data/home/.git
+  if test -d "$FILE"; then
+      cd ~/data/home
+      git pull origin master
+  else
+      git clone git@e.coding.net:sanfun/vpn.git ~/data/home
+      cd ~/data/home
+  fi
 fi
 
 sudo docker build -f Dockerfile.dev -t vpn_docker_dev .
@@ -32,5 +36,5 @@ sudo docker run --name vpn_docker_dev \
     -v ~/data/root_cache:/root/.cache \
     --cap-add=NET_ADMIN \
     --network app \
-    -it vpn_docker_dev
+    -t vpn_docker_dev
 
