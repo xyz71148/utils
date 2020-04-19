@@ -13,7 +13,8 @@ fi
 
 sudo docker build -f Dockerfile.dev -t vpn_docker_dev .
 
-sudo docker rm -f vpn_docker_dev || { echo "error ";}
+sudo docker network create app || { echo "app network exists ";}
+sudo docker rm -f vpn_docker_dev || { echo "error rm docker container";}
 
 sudo docker run --name vpn_docker_dev \
     -e AP_ENV=1 \
