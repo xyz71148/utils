@@ -29,7 +29,7 @@ sudo docker run --name vpn_docker_dev \
     -e AP_FLASK_ENV=dev \
     -e AP_PYTHONPATH=/data/home \
     -e AP_GOOGLE_APPLICATION_CREDENTIALS=/data/setting/credit.json.log \
-    -p 8080:8080 \
+    -p 8088:8080 \
     -p "8022:22" \
     -v $PWD:/data/home \
     -v $PWD/docker-data/setting:/data/setting \
